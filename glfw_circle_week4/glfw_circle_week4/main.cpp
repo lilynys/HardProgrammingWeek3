@@ -34,7 +34,6 @@ bool isInsideCircle(const double x, const double y, const double x_c, const doub
 	const double f = (x - x_c)*(x - x_c) + (y - y_c)*(y - y_c) - r*r;
 	if (f > 0.0) return false;
 	else {
-		printf("1\n");
 		return true;
 	}
 }
