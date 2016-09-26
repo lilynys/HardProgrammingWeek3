@@ -188,7 +188,7 @@ void drawOnPixelBuffer(double xpos, double ypos)
 	const int j0 = 310, j1 = 360;
 	const int thickness = 10;
 	const int size = 20;
-
+	
 	drawThicknerLine(thickness, i0, j0, i1, j1, 0.0f, 1.0f, 0.0f);
 	//drawSquare(size, 80+240, j0, i1 + 300, j1, 0.0f, 1.0f, 1.0f);
 	for (int i = 0; i < 8; i++) {
@@ -199,28 +199,42 @@ void drawOnPixelBuffer(double xpos, double ypos)
 
 	for (int i = 0; i<5; i++)
 		drawCircle(xpos, ypos, 50, 80 + i * 120, 150, 1.0f, 0.0f, 0.0f);
-	/*
+	
 	//if(isInsideCircle(i0 + 100, i1 + 100,50))
 	//	drawCircle(50, i0 + 100, i1 + 100, 1.0f, 0.0f, 0.0f);
 	drawEmptySquare(size, i0 + 370, j0 + 20, i1 + 100, j1, 1.0f, 0.0f, 0.0f);
+	// X
 	drawLine(i0 + 360, j0 + 10, i1 + 360, j1 + 10, 1.0f, 0.0f, 0.0f);
 	drawLine(i0 + 360, j1 + 10, i1 + 360, j0 + 10, 1.0f, 0.0f, 0.0f);
 	
-	drawLine(i0, j0 - 170, i1, j0 - 170, 1.0f, 0.0f, 0.0f);
+	//->
+	drawLine(i0, j0 - 160, i1, j0 - 160, 1.0f, 0.0f, 0.0f);
+	drawLine(i0+30, j0 - 140, i1, j0 - 160, 1.0f, 0.0f, 0.0f);
+	drawLine(i0 + 30, j0-180, i1 , j0 - 160, 1.0f, 0.0f, 0.0f);
 	
 	// A
-	drawLine(i0 + 120, j0 - 170, i1 + 100, j0 - 170, 1.0f, 0.0f, 0.0f);
+	drawLine(i0 + 125, j0 - 150, i1 + 100, j0 - 150, 1.0f, 0.0f, 0.0f);
+	drawLine(i0 + 110, j0 - 180, i1 + 90, j1 - 170, 1.0f, 0.0f, 0.0f);
+	drawLine(i1 + 90, j1 - 170, i0 + 160, j0 -180, 1.0f, 0.0f, 0.0f);
 	
 	//<-
-	drawLine(i0 + 360, j0 - 170, i1 + 360, j0 - 170, 1.0f, 0.0f, 0.0f);
+	drawLine(i0 + 360, j0 - 160, i1 + 360, j0 - 160, 1.0f, 0.0f, 0.0f);
+	drawLine(i0 + 360, j0 - 160, i1+330, j0 - 140, 1.0f, 0.0f, 0.0f);
+	drawLine(i0 + 360, j0 - 160, i1+330, j0 - 180, 1.0f, 0.0f, 0.0f);
 
+	// l
+	// V
 	heightLine(i0 + 500, j1 + 10, i1 + 360, j0 + 10, 1.0f, 0.0f, 0.0f);
-	drawLine(i0 + 360, j0 + 10, i1 + 500, j1 + 10, 1.0f, 0.0f, 0.0f);
-	drawLine(i0 + 360, j1 + 10, i1 + 360, j0 + 10, 1.0f, 0.0f, 0.0f);
+	drawLine(i0 + 500, j0 + 10, i1 + 480, j1 - 20, 1.0f, 0.0f, 0.0f);
+	drawLine(i0 + 470, j1 - 20, i1 + 450, j0 + 10, 1.0f, 0.0f, 0.0f);
 
 	heightLine(i0 + 260, j1 - 190, i1 + 360, j0 + 10, 1.0f, 0.0f, 0.0f);
+	// ^
+	// l
 	heightLine(i0 + 500, j1 - 190, i1 + 360, j0 + 10, 1.0f, 0.0f, 0.0f);
-	*/
+	drawLine(i0 + 470, j1 - 210, i1 + 450, j1 - 190, 1.0f, 0.0f, 0.0f);
+	drawLine(i0 + 500, j1 - 190, i1 + 480, j1 - 210, 1.0f, 0.0f, 0.0f);
+
 	//TODO: try moving object
 }
 int main(void)
