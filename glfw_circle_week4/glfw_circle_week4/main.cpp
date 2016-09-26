@@ -199,23 +199,28 @@ void drawOnPixelBuffer(double xpos, double ypos)
 
 	for (int i = 0; i<5; i++)
 		drawCircle(xpos, ypos, 50, 80 + i * 120, 150, 1.0f, 0.0f, 0.0f);
-
+	/*
 	//if(isInsideCircle(i0 + 100, i1 + 100,50))
 	//	drawCircle(50, i0 + 100, i1 + 100, 1.0f, 0.0f, 0.0f);
 	drawEmptySquare(size, i0 + 370, j0 + 20, i1 + 100, j1, 1.0f, 0.0f, 0.0f);
 	drawLine(i0 + 360, j0 + 10, i1 + 360, j1 + 10, 1.0f, 0.0f, 0.0f);
 	drawLine(i0 + 360, j1 + 10, i1 + 360, j0 + 10, 1.0f, 0.0f, 0.0f);
-	//->
+	
 	drawLine(i0, j0 - 170, i1, j0 - 170, 1.0f, 0.0f, 0.0f);
+	
 	// A
 	drawLine(i0 + 120, j0 - 170, i1 + 100, j0 - 170, 1.0f, 0.0f, 0.0f);
+	
 	//<-
 	drawLine(i0 + 360, j0 - 170, i1 + 360, j0 - 170, 1.0f, 0.0f, 0.0f);
 
 	heightLine(i0 + 500, j1 + 10, i1 + 360, j0 + 10, 1.0f, 0.0f, 0.0f);
+	drawLine(i0 + 360, j0 + 10, i1 + 500, j1 + 10, 1.0f, 0.0f, 0.0f);
+	drawLine(i0 + 360, j1 + 10, i1 + 360, j0 + 10, 1.0f, 0.0f, 0.0f);
+
 	heightLine(i0 + 260, j1 - 190, i1 + 360, j0 + 10, 1.0f, 0.0f, 0.0f);
 	heightLine(i0 + 500, j1 - 190, i1 + 360, j0 + 10, 1.0f, 0.0f, 0.0f);
-
+	*/
 	//TODO: try moving object
 }
 int main(void)
