@@ -40,11 +40,22 @@ bool isInsideCircle(const double x, const double y, const double x_c, const doub
 }
 void drawLine(const int& i0, const int& j0, const int& i1, const int& j1, const float& red, const float& green, const float& blue)
 {
+	/*
 	for (int i = i0; i <= i1; i++)
 	{
 		const int j = (j1 - j0)*(i - i0) / (i1 - i0) + j0;
 
 		drawPixel(i, j, red, green, blue);
+	}
+	*/
+	for (int i = i0; i <= i1; i++)
+	{
+		const int j = (j1 - j0) * (i - i0) / (i1 - i0) + j0;
+		drawPixel(i + 0, j, red, green, blue);
+		drawPixel(i + 1, j, red, green, blue);
+		drawPixel(i - 1, j, red, green, blue);
+		drawPixel(i, j + 1, red, green, blue);
+		drawPixel(i, j - 1, red,green,blue);
 	}
 }
 void drawThicknerLine(const int& thickness, const int& i0, const int& j0, const int& i1, const int& j1, const float& red, const float& green, const float& blue) {
@@ -59,7 +70,7 @@ void drawThicknerLine(const int& thickness, const int& i0, const int& j0, const 
 	}
 	*/
 	for (int i = 0; i < thickness; i++)
-		drawLine(i0 + i, j0, i1 + i, j1, 0.0f, 1.0f, 0.0f);
+		drawLine(i0 + i, j0, i1 + i, j1, red, green, blue);
 }
 void drawSquare(int thickness, const int& i0, const int& j0, const int& i1, const int& j1, const float& red, const float& green, const float& blue) {
 	int i_center = (i0 + i1) / 2;
@@ -100,7 +111,7 @@ void drawPolygon() {
 }
 
 void drawCircle(double xpos, double ypos, double rad, const int& i0, const int& j0, float red, float green, float blue) {
-	bool color = isInsideCircle(xpos, 500 - ypos, i0, j0, rad);
+	bool color = isInsideCircle(xpos, 480 - ypos, i0, j0, rad);
 	if (color == true)
 	{
 		red = 0.0f;
@@ -149,13 +160,24 @@ void drawEmptySquare(int size, const int& i0, const int& j0, const int& i1, cons
 	for (int j = j_center - size; j <= j_center + size; j++) {
 		//for (int i = i_center - thickness; i < i_center + thickness; i++) {
 		for (int i = i_center - size; i <= i_center + size; i = i + size * 2)
-			drawPixel(i, j, red, green, blue);
+			{
+				drawPixel(i + 0, j, red, green, blue);
+				drawPixel(i + 1, j, red, green, blue);
+				drawPixel(i - 1, j, red, green, blue);
+				drawPixel(i, j + 1, red, green, blue);
+				drawPixel(i, j - 1, red, green, blue);
+			}
 
 	}
 	//for (int j = j_center - thickness; j < j_center + thickness; j++) {
 	for (int i = i_center - size; i <= i_center + size; i++) {
-		for (int j = j_center - size; j <= j_center + size; j = j + size * 2)
-			drawPixel(i, j, red, green, blue);
+		for (int j = j_center - size; j <= j_center + size; j = j + size * 2) {
+			drawPixel(i + 0, j, red, green, blue);
+			drawPixel(i + 1, j, red, green, blue);
+			drawPixel(i - 1, j, red, green, blue);
+			drawPixel(i, j + 1, red, green, blue);
+			drawPixel(i, j - 1, red, green, blue);
+		}
 	}
 }
 void heightLine(const int& i0, const int& j0, const int& i1, const int& j1, const float& red, const float& green, const float& blue) {
@@ -165,6 +187,8 @@ void heightLine(const int& i0, const int& j0, const int& i1, const int& j1, cons
 	{
 
 		drawPixel(i0, j0 - i, red, green, blue);
+		drawPixel(i0-1, j0 - i, red, green, blue);
+		drawPixel(i0+1, j0 - i, red, green, blue);
 	}
 }
 void drawOnPixelBuffer(double xpos, double ypos)
@@ -189,7 +213,7 @@ void drawOnPixelBuffer(double xpos, double ypos)
 	const int thickness = 10;
 	const int size = 20;
 	
-	drawThicknerLine(thickness, i0, j0, i1, j1, 0.0f, 1.0f, 0.0f);
+	drawThicknerLine(thickness, i0-10, j0+10, i1-10, j1+10, 1.0f, 0.0f, 0.0f);
 	//drawSquare(size, 80+240, j0, i1 + 300, j1, 0.0f, 1.0f, 1.0f);
 	for (int i = 0; i < 8; i++) {
 		drawCircle(0, 0, 15 + i, 200, 350, 1.0f, 0.0f, 0.0f);
@@ -213,9 +237,9 @@ void drawOnPixelBuffer(double xpos, double ypos)
 	drawLine(i0 + 30, j0-180, i1 , j0 - 160, 1.0f, 0.0f, 0.0f);
 	
 	// A
-	drawLine(i0 + 125, j0 - 150, i1 + 100, j0 - 150, 1.0f, 0.0f, 0.0f);
+	drawLine(i0 + 125, j0 - 150, i1 + 105, j0 - 150, 1.0f, 0.0f, 0.0f);
 	drawLine(i0 + 110, j0 - 180, i1 + 90, j1 - 170, 1.0f, 0.0f, 0.0f);
-	drawLine(i1 + 90, j1 - 170, i0 + 160, j0 -180, 1.0f, 0.0f, 0.0f);
+	drawLine(i1 + 90, j1 - 170, i0 + 170, j0 -180, 1.0f, 0.0f, 0.0f);
 	
 	//<-
 	drawLine(i0 + 360, j0 - 160, i1 + 360, j0 - 160, 1.0f, 0.0f, 0.0f);
@@ -266,7 +290,7 @@ int main(void)
 		/* get Cursor pos */
 		double xpos, ypos;
 		glfwGetCursorPos(window, &xpos, &ypos);
-		printf("%04.1lf\t%04.1lf\n", xpos, ypos);
+		//printf("%04.1lf\t%04.1lf\n", xpos, ypos);
 
 		/* ALL Drawing Function is here */
 		drawOnPixelBuffer(xpos, ypos);
